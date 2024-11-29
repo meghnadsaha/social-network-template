@@ -17,7 +17,7 @@ To create a new React app, follow the instructions from the official React docum
    If you don't have `create-react-app` installed globally, you can use `npx` to run it without installing it globally.
 
    ```bash
-   npx create-react-app my-app
+   npx create-react-app social-network-template
    ```
 
    Replace `my-app` with your preferred project name.
@@ -404,74 +404,6 @@ Here is a recap of the default values and customization options for some importa
 With these props, you can customize the carousel to fit your needs for both accessibility and functionality.
 Absolutely! Here's the code with comments explaining each prop used in the `Carousel` component:
 
-```jsx
-<Carousel
-  // Controls the currently active slide. It is controlled by the `activeIndex` state.
-  // This allows you to dynamically set which slide should be shown.
-  activeIndex={activeIndex}  
-
-  // The `onSelect` function is called when the user manually selects a different slide.
-  // It updates the `activeIndex` state to show the selected slide.
-  onSelect={handleSelect}  
-
-  // The `interval` is the time in milliseconds between automatic slide transitions. 
-  // Here, the carousel will automatically change slides every 3000ms (3 seconds).
-  interval={3000}  
-
-  // The `controls` prop is set to `true`, meaning the carousel will show the "previous" and "next" buttons (arrows) 
-  // for manual navigation between slides.
-  controls={true}  
-
-  // The `indicators` prop is set to `true`, which means the carousel will show dot indicators 
-  // (small circles) at the bottom to show the current slide position.
-  indicators={true}  
-
-  // The `pause` prop controls whether the carousel should pause when the user hovers over it.
-  // Setting it to "hover" means the carousel will pause on mouse enter and resume on mouse leave.
-  pause="hover"  
-
-  // The `wrap` prop is set to `true`, meaning that the carousel will loop continuously. 
-  // When the user reaches the last slide, it will cycle back to the first slide.
-  wrap={true}  
-
-  // The `touch` prop is set to `true`, enabling swipe interactions on touch-enabled devices (like smartphones or tablets).
-  // This allows users to swipe left or right to navigate through slides.
-  touch={true}  
-
-  // The `fade` prop is set to `false`, meaning the carousel will use the default sliding animation 
-  // (instead of a crossfade animation between slides).
-  fade={false}  
-
-  // The `slide` prop is set to `true`, enabling the default slide animation for transitioning between slides.
-  slide={true}  
-
-  // The `prevIcon` allows you to customize the icon for the "previous" button (the left arrow).
-  // In this case, it uses a custom `<span>` with a leftward arrow ("&lt;").
-  prevIcon={<span>&lt;</span>}  
-
-  // The `nextIcon` allows you to customize the icon for the "next" button (the right arrow).
-  // In this case, it uses a custom `<span>` with a rightward arrow ("&gt;").
-  nextIcon={<span>&gt;</span>}  
-
-  // The `prevLabel` provides an accessible label for the "previous" button, which is used by screen readers.
-  // Here, the label is set to "Go Back".
-  prevLabel="Go Back"  
-
-  // The `nextLabel` provides an accessible label for the "next" button, used by screen readers.
-  // Here, the label is set to "Next Slide".
-  nextLabel="Next Slide"  
-
-  // The `variant` prop controls the color scheme of the carousel. 
-  // Setting it to "light" changes the color of the control buttons, indicators, and captions to a lighter color scheme.
-  variant="light"  
-
-  // The `defaultActiveIndex` prop is set to `0`, which means the carousel will initially show the first slide 
-  // when it is first rendered (index 0 corresponds to the first item).
-  defaultActiveIndex={0}  
->
-  {/* Carousel Items */}
-</Carousel>
-```
 
 ---
 
@@ -530,75 +462,112 @@ Absolutely! Here's the code with comments explaining each prop used in the `Caro
 ### **Example of Full Code with Explanations**
 
 ```jsx
-import React, { useState } from 'react';
-import { Carousel } from 'react-bootstrap';
+import React, { useState } from "react";
+import { Carousel } from "react-bootstrap";
 
-const CustomCarousel = () => {
-  const [activeIndex, setActiveIndex] = useState(0);  // Controls the active slide.
+function DarkVariantExample() {
+  const [activeIndex, setActiveIndex] = useState(0);
 
   const handleSelect = (selectedIndex, e) => {
-    setActiveIndex(selectedIndex);  // Updates the active index when the user selects a slide.
+    setActiveIndex(selectedIndex);
     console.log(`Selected slide: ${selectedIndex}`);
   };
-
   return (
     <Carousel
-      activeIndex={activeIndex}  // The active slide based on the `activeIndex` state.
-      onSelect={handleSelect}  // Function that updates the active slide when user selects a different one.
-      interval={3000}  // Automatically change the slide every 3 seconds.
-      controls={true}  // Show "Previous" and "Next" navigation buttons.
-      indicators={true}  // Show indicator dots at the bottom to show current slide position.
-      pause="hover"  // Pause the carousel when the user hovers over it.
-      wrap={true}  // Enable continuous loop of the slides.
-      touch={true}  // Enable swipe functionality on touch devices (phones/tablets).
-      fade={false}  // Use default sliding animation, not a crossfade.
-      slide={true}  // Use the slide animation for transitions.
-      prevIcon={<span>&lt;</span>}  // Custom icon for the "Previous" button.
-      nextIcon={<span>&gt;</span>}  // Custom icon for the "Next" button.
-      prevLabel="Go Back"  // Accessible label for "Previous" button.
-      nextLabel="Next Slide"  // Accessible label for "Next" button.
-      variant="light"  // Light color scheme for the carousel controls and indicators.
-      defaultActiveIndex={0}  // Start with the first slide active.
+      // Controls the currently active slide. It is controlled by the `activeIndex` state.
+      // This allows you to dynamically set which slide should be shown.
+      activeIndex={activeIndex}
+      // The `onSelect` function is called when the user manually selects a different slide.
+      // It updates the `activeIndex` state to show the selected slide.
+      onSelect={handleSelect}
+      // The `interval` is the time in milliseconds between automatic slide transitions.
+      // Here, the carousel will automatically change slides every 1000ms (3 seconds).
+      interval={1000}
+      // The `controls` prop is set to `true`, meaning the carousel will show the "previous" and "next" buttons (arrows)
+      // for manual navigation between slides.
+      controls={true}
+      // The `indicators` prop is set to `true`, which means the carousel will show dot indicators
+      // (small circles) at the bottom to show the current slide position.
+      indicators={true}
+      // The `pause` prop controls whether the carousel should pause when the user hovers over it.
+      // Setting it to "hover" means the carousel will pause on mouse enter and resume on mouse leave.
+      pause="hover"
+      // The `wrap` prop is set to `true`, meaning that the carousel will loop continuously.
+      // When the user reaches the last slide, it will cycle back to the first slide.
+      wrap={true}
+      // The `touch` prop is set to `true`, enabling swipe interactions on touch-enabled devices (like smartphones or tablets).
+      // This allows users to swipe left or right to navigate through slides.
+      touch={true}
+      // The `fade` prop is set to `false`, meaning the carousel will use the default sliding animation
+      // (instead of a crossfade animation between slides).
+      fade={false}
+      // The `slide` prop is set to `true`, enabling the default slide animation for transitioning between slides.
+      slide={true}
+      // The `prevIcon` allows you to customize the icon for the "previous" button (the left arrow).
+      // In this case, it uses a custom `<span>` with a leftward arrow ("&lt;").
+      prevIcon={<span>&lt;</span>}
+      // The `nextIcon` allows you to customize the icon for the "next" button (the right arrow).
+      // In this case, it uses a custom `<span>` with a rightward arrow ("&gt;").
+      nextIcon={<span>&gt;</span>}
+      // The `prevLabel` provides an accessible label for the "previous" button, which is used by screen readers.
+      // Here, the label is set to "Go Back".
+      prevLabel="Go Back"
+      // The `nextLabel` provides an accessible label for the "next" button, used by screen readers.
+      // Here, the label is set to "Next Slide".
+      nextLabel="Next Slide"
+      // The `variant` prop controls the color scheme of the carousel.
+      // Setting it to "light" changes the color of the control buttons, indicators, and captions to a lighter color scheme.
+      data-bs-theme="light"
+      // The `defaultActiveIndex` prop is set to `0`, which means the carousel will initially show the first slide
+      // when it is first rendered (index 0 corresponds to the first item).
+      defaultActiveIndex={0}
     >
-      {/* Carousel Items */}
+      {/* First Item */}
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="https://via.placeholder.com/800x400?text=First+Slide"
+          className="d-block w-100 carousel-height"
+          src="https://social.webestica.com/assets/images/post/3by2/01.jpg"
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Some representative placeholder content for the first slide.</p>
+          <h5>First slide label</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
         </Carousel.Caption>
       </Carousel.Item>
+
+      {/* Second Item */}
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="https://via.placeholder.com/800x400?text=Second+Slide"
+          className="d-block w-100 carousel-height"
+          src="https://social.webestica.com/assets/images/post/3by2/02.jpg"
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Some representative placeholder content for the second slide.</p>
+          <h5>Second slide label</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
         </Carousel.Caption>
       </Carousel.Item>
+
+      {/* Third Item */}
       <Carousel.Item>
         <img
-          className="d-block w-100"
-          src="https://via.placeholder.com/800x400?text=Third+Slide"
+          className="d-block w-100 carousel-height"
+          src="https://social.webestica.com/assets/images/post/3by2/03.jpg"
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>Some representative placeholder content for the third slide.</p>
+          <h5>Third slide label</h5>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>
   );
-};
+}
 
-export default CustomCarousel;
+export default DarkVariantExample;
+
 ```
 
 ```jsx
