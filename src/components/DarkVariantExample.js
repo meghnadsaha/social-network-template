@@ -26,6 +26,9 @@ function DarkVariantExample() {
     nextLabel="Next Slide"           // Accessibility label for next button
     data-bs-theme="light"            // Light color theme
     defaultActiveIndex={0}           // Starts at first slide
+
+    as="section"
+    className="custom-carousel-item" //Custom element type for CarouselItem (as="section")
   >
         {/* First Item */}
       <Carousel.Item>
