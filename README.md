@@ -44,7 +44,6 @@ To create a new React app, follow the instructions from the official React docum
 
 [React Bootstrap ](https://react-bootstrap.netlify.app/docs/getting-started/introduction) is a popular library that provides Bootstrap components as React components.
 
-####    [Webestica Social Template](https://react-bootstrap.netlify.app/docs/layout/grid)
 
 ### Steps:
 1. **Install React Bootstrap and Bootstrap**:
