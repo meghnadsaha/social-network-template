@@ -601,4 +601,25 @@ const CustomCarousel = () => {
 export default CustomCarousel;
 ```
 
+```jsx
+import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
+import DarkVariantExample from './components/DarkVariantExample';
+import { Container, Row } from 'react-bootstrap';
+
+function App() {
+  return (
+    <Container>
+      <Row>
+      <DarkVariantExample/>
+      </Row>
+    </Container>
+  );
+}
+
+export default App;
+
+```
+
 This code creates a fully customizable `Carousel` with features like automatic sliding, manual controls, touch/swipe support, custom icons, and accessibility labels, all using the React Bootstrap `Carousel` component.

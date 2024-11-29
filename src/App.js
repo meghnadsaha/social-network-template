@@ -1,4 +1,3 @@
-import logo from './logo.svg';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -10,7 +9,6 @@ function App() {
     <Container>
       <Row>
       <DarkVariantExample/>
-
       </Row>
     </Container>
   );
