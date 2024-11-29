@@ -380,20 +380,6 @@ This will apply the light color scheme to the carousel controls, indicators, and
 ```
 This will make the second slide the active one when the carousel first renders.
 
----
-
-### **Full Code Example for Carousel with Customization**
-
-```jsx
-
-```
-
-### **Explanation of Full Example**:
-- The **Carousel** component has various props like `activeIndex`, `interval`, `controls`, `indicators`, etc.
-- The `activeIndex` prop is controlled using state, and the `onSelect` callback updates the active slide index when the user manually navigates through the carousel.
-- The `interval` is set to `3000`, which means the carousel will automatically change slides every 3 seconds.
-- Custom icons are used for previous and next buttons (`prevIcon` and `nextIcon`), and screen reader labels (`prevLabel` and `nextLabel`) are customized.
-- The `pause="hover"` means that the carousel will pause when the user hovers over it, and it will resume when the mouse leaves.
 
 ---
 
