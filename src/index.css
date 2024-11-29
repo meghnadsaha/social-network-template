@@ -5,16 +5,25 @@
    color: black;
 } */
 
-/* Target the <section> element directly (if needed) */
-section {
-  background-color: yellow !important;  /* Light background color specifically for section */
-  padding: 30px !important;              /* More padding for <section> element */
-  border-radius: 15px !important;        /* Larger rounded corners */
+/* section {
+  background-color: yellow !important;  
+  padding: 30px !important;             
+  border-radius: 15px !important;        
 }
 
-/* Hover effect on the carousel item */
 .custom-carousel-item:hover {
-  transform: scale(1.05);     /* Slightly enlarge on hover */
-  background-color: #e2e2e2;  /* Change background color on hover */
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); /* Increased shadow on hover for emphasis */
+  transform: scale(1.05);     
+  background-color: #e2e2e2; 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); 
+}
+ */
+
+
+.carousel-caption {
+  position: relative !important;
+  bottom: 10.25rem!important;
+  left: 0%!important;
+  color: #fff!important;
+  text-align: center!important;
+  background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
 }

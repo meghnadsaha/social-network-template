@@ -716,4 +716,691 @@ export default CustomPrefixCarousel;
    - Use the `as` prop to customize the element type for the caption (e.g., change it to a `<footer>` instead of `<div>`).
 
 
+-----
+### 2. ** Slider : Static Slides :**
+Certainly! I'll walk you through the `DarkVariantExample` step by step to explain how this React component works, especially focusing on how the carousel is built using `react-bootstrap`.
 
+### Step-by-Step Breakdown:
+
+#### Step 1: Import Necessary Dependencies
+```javascript
+import React, { useState } from "react";
+import { Carousel } from "react-bootstrap";
+```
+
+- **React**: We import `React` because we're creating a React component.
+- **useState**: This is a hook from React used for managing the state of the component (in this case, the active slide index).
+- **Carousel**: This is the Carousel component from `react-bootstrap`, a Bootstrap-based React component to create carousel/slideshow elements.
+
+#### Step 2: Set Up the Component and State
+```javascript
+function DarkVariantExample() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setActiveIndex(selectedIndex);
+    console.log(`Selected slide: ${selectedIndex}`);
+  };
+```
+
+- `DarkVariantExample` is a functional React component.
+- **useState(0)** initializes a state variable `activeIndex` with a default value of `0`. This will track which slide is currently being displayed in the carousel.
+- `setActiveIndex`: This is the setter function used to update `activeIndex`.
+- `handleSelect`: This function is triggered when the user manually changes the slide (through the navigation controls). It updates the active index and logs the selected slide's index.
+
+#### Step 3: Build the Carousel Component
+The `Carousel` component from `react-bootstrap` is where we configure the slideshow. Here's how we configure it:
+
+```javascript
+return (
+    <Carousel
+      activeIndex={activeIndex}        // Tracks the current active slide
+      onSelect={handleSelect}           // Updates activeIndex on manual slide change
+      interval={1000}                   // Auto-transition every 1000ms (1 second)
+      controls={true}                   // Shows prev/next buttons for navigation
+      indicators={true}                 // Displays slide position dots
+      pause="hover"                     // Pauses the carousel on hover
+      wrap={true}                       // Loops back to the first slide when the last slide is reached
+      touch={true}                      // Enables swipe navigation on touch devices
+      fade={false}                      // Uses slide transition instead of fading
+      slide={true}                      // Default slide transition effect
+      prevIcon={<span>prevIcon</span>}  // Custom previous slide icon (could be an SVG or icon component)
+      nextIcon={<span>next</span>}      // Custom next slide icon
+      prevLabel="Go Back"              // Accessibility label for the previous button
+      nextLabel="Next Slide"           // Accessibility label for the next button
+      data-bs-theme="light"            // Bootstrap theme (light or dark)
+      defaultActiveIndex={0}           // Starts at the first slide
+      as="section"
+      className="custom-carousel-item" // Custom class for styling CarouselItem components
+    >
+```
+
+- **activeIndex**: Keeps track of the current slide that's being shown. It gets updated every time the user changes the slide.
+- **onSelect**: This callback is triggered whenever the user manually changes the slide (either by clicking the controls or the indicators).
+- **interval**: How long the carousel waits before automatically changing the slide (1000ms = 1 second).
+- **controls**: When `true`, it shows the previous and next navigation buttons (`<` and `>`).
+- **indicators**: When `true`, it shows the navigation dots (below the carousel) to indicate which slide is active.
+- **pause**: The carousel pauses when you hover over it.
+- **wrap**: Loops back to the first slide after the last one.
+- **touch**: Enables swipe functionality on touch devices.
+- **fade**: Set to `false` to use a sliding transition (default behavior). If `true`, the transition would be a fade effect instead.
+- **prevIcon and nextIcon**: Custom icons to represent the previous and next buttons.
+- **prevLabel and nextLabel**: Accessibility labels for the previous and next buttons, which help screen readers.
+- **defaultActiveIndex**: Sets the default active slide (here, it starts at the first slide).
+
+#### Step 4: Add Carousel Items
+Within the `Carousel` component, we define individual `Carousel.Item` components. Each `Carousel.Item` represents a slide in the carousel. 
+
+```javascript
+<Carousel.Item>
+  <img
+    className="d-block w-100 carousel-height"
+    src="https://social.webestica.com/assets/images/post/3by2/01.jpg"
+    alt="First slide"
+  />
+  <Carousel.Caption>
+    <h5>First slide label</h5>
+    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+  </Carousel.Caption>
+</Carousel.Item>
+```
+
+- **Carousel.Item**: This is a single slide in the carousel.
+- Inside each `Carousel.Item`, we define:
+  - An **`<img>`** tag: It has the `src` pointing to the image URL, the `alt` text describing the image (for accessibility), and a custom CSS class to control the height and width.
+  - **Carousel.Caption**: This contains the caption that will appear on top of the image. It includes a heading (`<h5>`) and a paragraph (`<p>`).
+
+Repeat the same structure for each slide.
+
+#### Step 5: Repeat for All Slides
+
+Here are the three items (slides):
+
+1. **First Item:**
+```javascript
+<Carousel.Item>
+  <img
+    className="d-block w-100 carousel-height"
+    src="https://social.webestica.com/assets/images/post/3by2/01.jpg"
+    alt="First slide"
+  />
+  <Carousel.Caption>
+    <h5>First slide label</h5>
+    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+  </Carousel.Caption>
+</Carousel.Item>
+```
+
+2. **Second Item:**
+```javascript
+<Carousel.Item>
+  <img
+    className="d-block w-100 carousel-height"
+    src="https://social.webestica.com/assets/images/post/3by2/02.jpg"
+    alt="Second slide"
+  />
+  <Carousel.Caption>
+    <h5>Second slide label</h5>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+  </Carousel.Caption>
+</Carousel.Item>
+```
+
+3. **Third Item:**
+```javascript
+<Carousel.Item>
+  <img
+    className="d-block w-100 carousel-height"
+    src="https://social.webestica.com/assets/images/post/3by2/03.jpg"
+    alt="Third slide"
+  />
+  <Carousel.Caption>
+    <h5>Third slide label</h5>
+    <p>
+      Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+    </p>
+  </Carousel.Caption>
+</Carousel.Item>
+```
+
+#### Step 6: Export the Component
+```javascript
+export default DarkVariantExample;
+```
+This line exports the `DarkVariantExample` component, making it available for use in other parts of your application.
+
+---
+
+### Final Code:
+Here is the full `DarkVariantExample` component:
+
+```javascript
+import React, { useState } from "react";
+import { Carousel } from "react-bootstrap";
+
+function DarkVariantExample() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setActiveIndex(selectedIndex);
+    console.log(`Selected slide: ${selectedIndex}`);
+  };
+
+  return (
+    <Carousel
+      activeIndex={activeIndex}
+      onSelect={handleSelect}
+      interval={1000}
+      controls={true}
+      indicators={true}
+      pause="hover"
+      wrap={true}
+      touch={true}
+      fade={false}
+      slide={true}
+      prevIcon={<span>prevIcon</span>}
+      nextIcon={<span>next</span>}
+      prevLabel="Go Back"
+      nextLabel="Next Slide"
+      data-bs-theme="light"
+      defaultActiveIndex={0}
+      as="section"
+      className="custom-carousel-item"
+    >
+      <Carousel.Item>
+        <img
+          className="d-block w-100 carousel-height"
+          src="https://social.webestica.com/assets/images/post/3by2/01.jpg"
+          alt="First slide"
+        />
+        <Carousel.Caption>
+          <h5>First slide label</h5>
+          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100 carousel-height"
+          src="https://social.webestica.com/assets/images/post/3by2/02.jpg"
+          alt="Second slide"
+        />
+        <Carousel.Caption>
+          <h5>Second slide label</h5>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </Carousel.Caption>
+      </Carousel.Item>
+
+      <Carousel.Item>
+        <img
+          className="d-block w-100 carousel-height"
+          src="https://social.webestica.com/assets/images/post/3by2/03.jpg"
+          alt="Third slide"
+        />
+        <Carousel.Caption>
+          <h5>Third slide label</h5>
+          <p>
+            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          </
+
+p>
+        </Carousel.Caption>
+      </Carousel.Item>
+    </Carousel>
+  );
+}
+
+export default DarkVariantExample;
+```
+
+### Key Concepts:
+- **State**: We used `useState` to track the current active slide.
+- **Event Handling**: The `handleSelect` function updates the active slide when the user manually changes it.
+- **Carousel Components**: `Carousel`, `Carousel.Item`, and `Carousel.Caption` are used to build the actual slideshow.
+
+-----
+
+<br/>
+<br/>
+<br/>
+
+-----
+
+The `DynamicCarousel` was created by refactoring the `DarkVariantExample` to make the carousel items dynamic. Here's a breakdown of how the changes were made:
+
+### 2. **Dynamic Slider : Convert Static Slides to Dynamic Data:**
+
+In `DarkVariantExample`, the slides were hardcoded as static `Carousel.Item` components. To make it dynamic, we replaced the hardcoded slides with an array of slide objects.
+
+#### Original Static Items:
+```jsx
+<Carousel.Item>
+  <img
+    className="d-block w-100 carousel-height"
+    src="https://social.webestica.com/assets/images/post/3by2/01.jpg"
+    alt="First slide"
+  />
+  <Carousel.Caption>
+    <h5>First slide label</h5>
+    <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+  </Carousel.Caption>
+</Carousel.Item>
+```
+
+#### Refactored Dynamic Data:
+Instead of manually specifying each `<Carousel.Item>`, we store the slide data in an array (`slides`), which can be fetched from an API or passed as props.
+
+```jsx
+const slides = [
+  {
+    imgSrc: "https://social.webestica.com/assets/images/post/3by2/01.jpg",
+    altText: "First slide",
+    title: "First slide label",
+    description: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
+  },
+  {
+    imgSrc: "https://social.webestica.com/assets/images/post/3by2/02.jpg",
+    altText: "Second slide",
+    title: "Second slide label",
+    description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+  },
+  {
+    imgSrc: "https://social.webestica.com/assets/images/post/3by2/03.jpg",
+    altText: "Third slide",
+    title: "Third slide label",
+    description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.",
+  },
+];
+```
+
+### 2. **Map Through the Array to Render Slides:**
+
+Instead of manually defining each `<Carousel.Item>`, we loop through the `slides` array using `map()` and dynamically render each slide.
+
+```jsx
+{slides.map((slide, index) => (
+  <Carousel.Item key={index}>
+    <img
+      className="d-block w-100 carousel-height"
+      src={slide.imgSrc}
+      alt={slide.altText}
+    />
+    <Carousel.Caption>
+      <h5>{slide.title}</h5>
+      <p>{slide.description}</p>
+    </Carousel.Caption>
+  </Carousel.Item>
+))}
+```
+
+### 3. **Handle Active Slide State:**
+
+The active slide (`activeIndex`) is controlled via React's `useState`. When the user manually selects a slide, the `handleSelect` function is invoked, and it updates the `activeIndex`.
+
+```jsx
+const [activeIndex, setActiveIndex] = useState(0);
+
+const handleSelect = (selectedIndex, e) => {
+  setActiveIndex(selectedIndex);
+  console.log(`Selected slide: ${selectedIndex}`);
+};
+```
+
+The `activeIndex` is then passed to the `Carousel` component to control which slide is displayed.
+
+```jsx
+<Carousel activeIndex={activeIndex} onSelect={handleSelect}>
+  {/* Dynamic slide rendering here */}
+</Carousel>
+```
+
+### 4. **Other Carousel Configurations:**
+
+In both the `DarkVariantExample` and `DynamicCarousel`, the other carousel settings remain the same, such as:
+
+- `interval={1000}` (auto-slide every 1000ms)
+- `controls={true}` (shows navigation controls)
+- `indicators={true}` (shows slide position dots)
+- `pause="hover"` (pause on hover)
+- `wrap={true}` (looping the carousel)
+- `touch={true}` (supports swipe navigation on touch devices)
+
+### Final `DynamicCarousel` Component:
+
+```jsx
+import React, { useState } from "react";
+import { Carousel } from "react-bootstrap";
+
+function DynamicCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setActiveIndex(selectedIndex);
+    console.log(`Selected slide: ${selectedIndex}`);
+  };
+
+  // Array of slide data
+  const slides = [
+    {
+      imgSrc: "https://social.webestica.com/assets/images/post/3by2/01.jpg",
+      altText: "First slide",
+      title: "First slide label",
+      description: "Nulla vitae elit libero, a pharetra augue mollis interdum.",
+    },
+    {
+      imgSrc: "https://social.webestica.com/assets/images/post/3by2/02.jpg",
+      altText: "Second slide",
+      title: "Second slide label",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+    },
+    {
+      imgSrc: "https://social.webestica.com/assets/images/post/3by2/03.jpg",
+      altText: "Third slide",
+      title: "Third slide label",
+      description: "Praesent commodo cursus magna, vel scelerisque nisl consectetur.",
+    },
+  ];
+
+  return (
+    <Carousel
+      activeIndex={activeIndex}
+      onSelect={handleSelect}
+      interval={1000}
+      controls={true}
+      indicators={true}
+      pause="hover"
+      wrap={true}
+      touch={true}
+      fade={false}
+      slide={true}
+      prevIcon={<span>prevIcon</span>}
+      nextIcon={<span>next</span>}
+      prevLabel="Go Back"
+      nextLabel="Next Slide"
+      data-bs-theme="light"
+      defaultActiveIndex={0}
+      as="section"
+      className="custom-carousel-item"
+    >
+      {/* Dynamically render carousel items */}
+      {slides.map((slide, index) => (
+        <Carousel.Item key={index}>
+          <img
+            className="d-block w-100 carousel-height"
+            src={slide.imgSrc}
+            alt={slide.altText}
+          />
+          <Carousel.Caption>
+            <h5>{slide.title}</h5>
+            <p>{slide.description}</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  );
+}
+
+export default DynamicCarousel;
+```
+
+### Summary of Changes:
+- **Dynamic data (slides array)**: Replaced static `Carousel.Item` with a `slides` array.
+- **Looping over slides**: Used `.map()` to render `Carousel.Item` dynamically.
+- **State management**: Kept the state (`activeIndex`) to control which slide is active.
+- **Carousel configuration**: Maintained the same carousel settings, ensuring consistent behavior with the original example.
+
+This structure allows the carousel to be easily updated with new data without needing to manually modify the component each time you want to change the slides. It also makes it much easier to fetch the slide data from an API if needed in the future.
+
+----
+
+
+Sure! Let's go through the process step by step again, this time adding logs to help you debug and understand how the data is grouped and rendered.
+
+We'll log key points such as when data is being grouped, when the carousel is changing slides, and the details of each testimonial being rendered. This will help you trace the data flow and understand how the carousel displays 3 items per slide.
+
+### Step-by-Step Guide with Logs to Show 3 Items per Slide in a Carousel
+
+---
+
+### 1. **Import Necessary Dependencies**
+Ensure you have the necessary imports at the top of your component:
+
+```javascript
+import React, { useState } from 'react';
+import { Col, Row, Carousel } from 'react-bootstrap';
+import carousel1 from "../assets/photos/1.jpg";
+import carousel2 from "../assets/photos/2.jpg";
+import carousel3 from "../assets/photos/3.jpg";
+import carousel4 from "../assets/photos/4.jpg";
+import carousel5 from "../assets/photos/5.jpg";
+import carousel6 from "../assets/photos/6.jpg";
+```
+
+---
+
+### 2. **Prepare Your Data**
+We start with a set of testimonials. Each testimonial will have an `id`, `imageUrl`, and `text`.
+
+```javascript
+const testimonials = [
+  { id: 1, imageUrl: carousel1, text: "This is the first testimonial text." },
+  { id: 2, imageUrl: carousel2, text: "This is the second testimonial text." },
+  { id: 3, imageUrl: carousel3, text: "This is the third testimonial text." },
+  { id: 4, imageUrl: carousel4, text: "This is the fourth testimonial text." },
+  { id: 5, imageUrl: carousel5, text: "This is the fifth testimonial text." },
+  { id: 6, imageUrl: carousel6, text: "This is the sixth testimonial text." },
+];
+```
+
+---
+
+### 3. **Group Testimonials into Sets of 3**
+Now, we create a helper function that groups the testimonials into sets of 3 items. We also log the grouping process to see how the data is divided into groups.
+
+```javascript
+const groupTestimonials = (testimonials, groupSize) => {
+  const groups = [];
+  for (let i = 0; i < testimonials.length; i += groupSize) {
+    const group = testimonials.slice(i, i + groupSize);
+    console.log(`Grouping items from index ${i} to ${i + groupSize - 1}:`, group);
+    groups.push(group);
+  }
+  return groups;
+};
+```
+
+Here, we are logging each group as it's created. This will let you see exactly how the data is grouped (e.g., every 3 items).
+
+---
+
+### 4. **Handle Carousel State**
+Next, we set up state to track the active slide index. This helps control which slide is visible, and we log the selected slide index when the carousel changes.
+
+```javascript
+const [activeIndex, setActiveIndex] = useState(0);
+
+const handleSelect = (selectedIndex, e) => {
+  setActiveIndex(selectedIndex);
+  console.log(`Selected slide: ${selectedIndex}`);
+};
+```
+
+In this case, each time the user changes the slide, we log the index of the active slide.
+
+---
+
+### 5. **Render the Carousel**
+We use the `Carousel` component from React-Bootstrap. Inside each slide (`Carousel.Item`), we use the `Row` and `Col` components to display 3 items per slide. Each testimonial group is logged as it is being rendered.
+
+```javascript
+<Carousel
+  activeIndex={activeIndex}
+  onSelect={handleSelect}
+  interval={5000}  // You can adjust this interval for auto-slide
+  controls={true}
+  indicators={true}
+  pause="hover"
+  wrap={true}
+  touch={true}
+  fade={false}
+  slide={true}
+  prevIcon={<span>Previous</span>}
+  nextIcon={<span>Next</span>}
+  prevLabel="Go Back"
+  nextLabel="Next Slide"
+  data-bs-theme="light"
+  as="section"
+  className="testimonial-carousel"
+>
+  {/* Dynamically render carousel items */}
+  {groupTestimonials(testimonials, 3).map((group, index) => {
+    console.log(`Rendering group ${index + 1}:`, group);
+    return (
+      <Carousel.Item key={index}>
+        <Row>
+          {group.map((testimonial) => {
+            console.log(`Rendering testimonial ${testimonial.id}:`, testimonial);
+            return (
+              <Col md={4} key={testimonial.id}>  {/* 'md={4}' ensures 3 items per row */}
+                <img
+                  className="d-block w-100 carousel-img"
+                  src={testimonial.imageUrl}
+                  alt={`Testimonial ${testimonial.id}`}
+                />
+                <Carousel.Caption>
+                  <h3>{`Testimonial ${testimonial.id}`}</h3>
+                  <p>{testimonial.text}</p>
+                </Carousel.Caption>
+              </Col>
+            );
+          })}
+        </Row>
+      </Carousel.Item>
+    );
+  })}
+</Carousel>
+```
+
+### Logs Explained:
+- **Grouping the testimonials**: 
+  - Every time the `groupTestimonials` function groups the data, it logs the current range of items being grouped.
+  - Example log: `Grouping items from index 0 to 2: [...]`.
+
+- **Rendering the group in the carousel**:
+  - When each carousel item (`Carousel.Item`) is being rendered, we log the group being rendered.
+  - Example log: `Rendering group 1: [...]`.
+
+- **Rendering individual testimonials**:
+  - Each individual testimonial is logged as it is rendered in the carousel.
+  - Example log: `Rendering testimonial 1: {...}`.
+
+---
+
+### 6. **Styling (Optional)**
+If you want to style the images and make them look better, you can add the following CSS:
+
+```css
+.carousel-img {
+  height: 200px;  /* Adjust the height as needed */
+  object-fit: cover;  /* Ensures images are cropped appropriately */
+  margin-bottom: 15px;
+}
+```
+
+---
+
+### Final Code with Logs:
+
+```javascript
+import React, { useState } from 'react';
+import { Col, Row, Carousel } from 'react-bootstrap';
+import carousel1 from "../assets/photos/1.jpg";
+import carousel2 from "../assets/photos/2.jpg";
+import carousel3 from "../assets/photos/3.jpg";
+import carousel4 from "../assets/photos/4.jpg";
+import carousel5 from "../assets/photos/5.jpg";
+import carousel6 from "../assets/photos/6.jpg";
+
+function NItemsPerSlideCarousel() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const handleSelect = (selectedIndex, e) => {
+    setActiveIndex(selectedIndex);
+    console.log(`Selected slide: ${selectedIndex}`);
+  };
+
+  // Array of testimonial data
+  const testimonials = [
+    { id: 1, imageUrl: carousel1, text: "This is the first testimonial text." },
+    { id: 2, imageUrl: carousel2, text: "This is the second testimonial text." },
+    { id: 3, imageUrl: carousel3, text: "This is the third testimonial text." },
+    { id: 4, imageUrl: carousel4, text: "This is the fourth testimonial text." },
+    { id: 5, imageUrl: carousel5, text: "This is the fifth testimonial text." },
+    { id: 6, imageUrl: carousel6, text: "This is the sixth testimonial text." },
+  ];
+
+  // Helper function to group testimonials (3 items per slide)
+  const groupTestimonials = (testimonials, groupSize) => {
+    const groups = [];
+    for (let i = 0; i < testimonials.length; i += groupSize) {
+      const group = testimonials.slice(i, i + groupSize);
+      console.log(`Grouping items from index ${i} to ${i + groupSize - 1}:`, group);
+      groups.push(group);
+    }
+    return groups;
+  };
+
+  return (
+    <Carousel
+      activeIndex={activeIndex}
+      onSelect={handleSelect}
+      interval={5000} // Adjust auto-slide interval
+      controls={true}
+      indicators={true}
+      pause="hover"
+      wrap={true}
+      touch={true}
+      fade={false}
+      slide={true}
+      prevIcon={<span>Previous</span>}
+      nextIcon={<span>Next</span>}
+      prevLabel="Go Back"
+      nextLabel="Next Slide"
+      data-bs-theme="light"
+      as="section"
+      className="testimonial-carousel"
+    >
+      {/* Dynamically render carousel items */}
+      {groupTestimonials(testimonials, 3).map((group, index) => {
+        console.log(`Rendering group ${index + 1}:`, group);
+        return (
+          <Carousel.Item key={index}>
+            <Row>
+              {group.map((testimonial) => {
+                console.log(`Rendering testimonial ${testimonial.id}:`, testimonial);
+                return (
+                  <Col md={4} key={testimonial.id}>  {/* 3 items per row */}
+                    <img
+                      className="d-block w-100 carousel-img"
+                      src={testimonial.imageUrl}
+                      alt={`Testimonial ${testimonial.id}`}
+                    />
+                    <Carousel.Caption>
+                      <h3>{`Testimonial ${testimonial.id}`}</h3>
+                      <p>{testimonial.text}</p>
+                    </Carousel.Caption>
+                  </Col>
+                );
+              })}
+            </Row>
+          </Carousel.Item>
+        );
+      })}
+    </Carousel>
+  );
+}
+
+export default NItemsPerSlideCarousel;
+```
+
+---
