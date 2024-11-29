@@ -86,7 +86,7 @@ For more details on how to use React Bootstrap components, refer to the [officia
 
 
 1. ** Webestica Social Link**:
-    [Webestica Social Template](https://social.webestica.com/).
+    [Webestica Social Template](https://themes.getbootstrap.com/preview/?theme_id=110435).
 
 
 ---
