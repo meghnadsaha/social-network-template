@@ -1300,10 +1300,28 @@ We use the `Carousel` component from React-Bootstrap. Inside each slide (`Carous
 If you want to style the images and make them look better, you can add the following CSS:
 
 ```css
-.carousel-img {
-  height: 200px;  /* Adjust the height as needed */
-  object-fit: cover;  /* Ensures images are cropped appropriately */
-  margin-bottom: 15px;
+
+
+section {
+  background-color: yellow !important;  
+  padding: 30px !important;             
+  border-radius: 15px !important;        
+}
+
+.custom-carousel-item:hover {
+  transform: scale(1.05);     
+  background-color: #e2e2e2; 
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2); 
+}
+
+/*carousel-caption position */
+.carousel-caption {
+  position: relative !important;
+  bottom: 10.25rem!important;
+  left: 0%!important;
+  color: #fff!important;
+  text-align: center!important;
+  background-color: rgba(255, 255, 255, 0.5); /* White with 50% opacity */
 }
 ```
 
@@ -1404,3 +1422,5 @@ export default NItemsPerSlideCarousel;
 ```
 
 ---
+
+
